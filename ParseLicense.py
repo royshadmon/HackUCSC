@@ -27,6 +27,7 @@ if indDol2 != -1:
 
 else:
     firstName = licenseScan[indDol1 + 1 : indKarat2]
+    middleName = -1
     print (firstName)
     print (lastName)
 
