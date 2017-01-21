@@ -1,0 +1,4 @@
+ firstname | lastname | time_entered 
+-----------+----------+--------------
+(0 rows)
+
