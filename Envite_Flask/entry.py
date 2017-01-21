@@ -13,25 +13,25 @@ def main():
     else:
         main()
 
-def card():
+def card(ID):
     print "DROP TABLE IF EXISTS Guests;"
     print "CREATE TABLE Guests (" \
           "firstname char(30), " \
           "lastname char(30), " \
           "time_entered TIMESTAMP, " \
           "PRIMARY KEY(firstname, lastname));"
-    retrieveName = True
-    while retrieveName == True:
-        scan = raw_input()
-        scan = scan.upper()
-        if scan == 'EXIT':
-            break
-        else:
-            name = getName(scan)
-            if checkExists(name) == True
-                return "User has already entered"
-            else:
-                parseName(name)
+    #retrieveName = True
+    #while retrieveName == True:
+    scan = raw_input()
+    scan = scan.upper()
+    if scan == 'EXIT':
+        exit()
+    else:
+        name = getName(scan)
+        #if checkExists(name) == True:
+         #   return "User has already entered"
+        #else:
+        parseName(name)
 
 def csvFile():
     print "DROP TABLE IF EXISTS Guests;"
