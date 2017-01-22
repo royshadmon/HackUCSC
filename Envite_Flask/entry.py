@@ -14,6 +14,9 @@ def main():
         main()
 
 def card(ID):
+
+
+
     print "DROP TABLE IF EXISTS Guests;"
     print "CREATE TABLE Guests (" \
           "firstname char(30), " \
@@ -22,8 +25,7 @@ def card(ID):
           "PRIMARY KEY(firstname, lastname));"
     #retrieveName = True
     #while retrieveName == True:
-    scan = raw_input()
-    scan = scan.upper()
+    scan = ID
     if scan == 'EXIT':
         exit()
     else:
@@ -50,9 +52,10 @@ def checkExists(name):
 
 
 def parseName(name):
+    test = open('test.txt', 'w')
     ts = time.time()
     timestamp1 = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-    print ('INSERT INTO Guests VALUES(' + "'" + name[0] + "'" + ',' + "'" + name[1] + "'" + ',' + "'" + timestamp1 + "');")
+    test.write('INSERT INTO Guests VALUES(' + "'" + name[0] + "'" + ',' + "'" + name[1] + "'" + ',' + "'" + timestamp1 + "');")
 
 def getName(licenseScan):
     #Parse a driver's license for First and last name
