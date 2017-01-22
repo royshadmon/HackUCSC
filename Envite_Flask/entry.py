@@ -22,7 +22,7 @@ def card(ID):
           "PRIMARY KEY(firstname, lastname));"
     #retrieveName = True
     #while retrieveName == True:
-    scan = ID
+    scan = raw_input()
     scan = scan.upper()
     if scan == 'EXIT':
         exit()
