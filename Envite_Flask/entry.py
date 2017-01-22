@@ -15,7 +15,11 @@ def main():
 
 def card(ID):
 
+<<<<<<< HEAD
     test = open('test.sql', 'w')
+=======
+
+>>>>>>> origin/master
 
     print "DROP TABLE IF EXISTS Guests;"
     print "CREATE TABLE Guests (" \
@@ -25,8 +29,7 @@ def card(ID):
           "PRIMARY KEY(firstname, lastname));"
     #retrieveName = True
     #while retrieveName == True:
-    scan = raw_input()
-    scan = scan.upper()
+    scan = ID
     if scan == 'EXIT':
         exit()
     else:
@@ -52,7 +55,12 @@ def checkExists(name):
     print "SELECT " + name[0] + ", " +" FROM GUESTS "
 
 
+<<<<<<< HEAD
 def parseName(name,test):
+=======
+def parseName(name):
+    test = open('test.txt', 'w')
+>>>>>>> origin/master
     ts = time.time()
     timestamp1 = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     test.write('INSERT INTO Guests VALUES(' + "'" + name[0] + "'" + ',' + "'" + name[1] + "'" + ',' + "'" + timestamp1 + "');")
