@@ -1,25 +1,47 @@
 import csv
 import datetime
+import pprint
 import time
 
-def main():
+import psycopg2
 
-    choice = raw_input() # 'c' for csv or 'd' for card
-    choice = choice.upper()
-    if choice == 'C':
-        csvFile()
-    elif choice == 'D':
-        card()
-    else:
-        main()
+def main():
+    connString = "host='envitedb.chsdj9v9ebik.us-west-1.rds.amazonaws.com' dbname='mydb' user='rshadmon' password='shadmon54321'"
+    conn = psycopg2.connect(connString)
+
+    # print the connection string we will use to connect
+    print "Connecting to database\n	->%s" % (connString)
+
+    # get a connection, if a connect cannot be made an exception will be raised here
+    conn = psycopg2.connect(connString)
+
+    # conn.cursor will return a cursor object, you can use this cursor to perform queries
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM Guests")
+    records = cursor.fetchall()
+    pprint.pprint(records)
+
+    #print "Connected!\n"
+
+
+    #choice = raw_input() # 'c' for csv or 'd' for card
+    #choice = choice.upper()
+    #if choice == 'C':
+    #    csvFile()
+    #elif choice == 'D':
+    #    card()
+    #else:
+    #    main()
+
+
+#if __name__ == "__main__":
+#    main()
+
+
 
 def card(ID):
 
-<<<<<<< HEAD
-    test = open('test.sql', 'w')
-=======
-
->>>>>>> origin/master
 
     print "DROP TABLE IF EXISTS Guests;"
     print "CREATE TABLE Guests (" \
@@ -37,7 +59,8 @@ def card(ID):
         #if checkExists(name) == True:
          #   return "User has already entered"
         #else:
-        parseName(name,test)
+        parseName(name)
+
 
 def csvFile():
     print "DROP TABLE IF EXISTS Guests;"
@@ -55,15 +78,13 @@ def checkExists(name):
     print "SELECT " + name[0] + ", " +" FROM GUESTS "
 
 
-<<<<<<< HEAD
-def parseName(name,test):
-=======
 def parseName(name):
     test = open('test.txt', 'w')
->>>>>>> origin/master
+
     ts = time.time()
     timestamp1 = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
     test.write('INSERT INTO Guests VALUES(' + "'" + name[0] + "'" + ',' + "'" + name[1] + "'" + ',' + "'" + timestamp1 + "');")
+    test.close()
 
 def getName(licenseScan):
     #Parse a driver's license for First and last name
