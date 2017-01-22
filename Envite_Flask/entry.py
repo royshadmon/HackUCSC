@@ -14,6 +14,9 @@ def main():
         main()
 
 def card(ID):
+
+    test = open('test.sql', 'w')
+
     print "DROP TABLE IF EXISTS Guests;"
     print "CREATE TABLE Guests (" \
           "firstname char(30), " \
@@ -31,7 +34,7 @@ def card(ID):
         #if checkExists(name) == True:
          #   return "User has already entered"
         #else:
-        parseName(name)
+        parseName(name,test)
 
 def csvFile():
     print "DROP TABLE IF EXISTS Guests;"
@@ -49,10 +52,10 @@ def checkExists(name):
     print "SELECT " + name[0] + ", " +" FROM GUESTS "
 
 
-def parseName(name):
+def parseName(name,test):
     ts = time.time()
     timestamp1 = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-    print ('INSERT INTO Guests VALUES(' + "'" + name[0] + "'" + ',' + "'" + name[1] + "'" + ',' + "'" + timestamp1 + "');")
+    test.write('INSERT INTO Guests VALUES(' + "'" + name[0] + "'" + ',' + "'" + name[1] + "'" + ',' + "'" + timestamp1 + "');")
 
 def getName(licenseScan):
     #Parse a driver's license for First and last name
