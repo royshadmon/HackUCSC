@@ -5,7 +5,7 @@ import tablib
 
 import entry
 
-app = Flask(__name__, static_folder='static', static_url_path='/static')
+application = Flask(__name__) #static_folder='static', static_url_path='/static')
 
 #filepath = os.path.join(os.path.dirname(__file__),'attendees.csv')
 
@@ -20,11 +20,11 @@ app = Flask(__name__, static_folder='static', static_url_path='/static')
 
 
 
-@app.route('/')
+@application.route("/")
 def main():
     return render_template('index.html')
 
-@app.route('/getID', methods= ['GET', 'POST'])
+@application.route("/getID", methods= ['GET', 'POST'])
 def static_form_root():
 
     ID = request.form['enterID']
@@ -38,4 +38,4 @@ def static_form_root():
     return redirect('/')
 
 if __name__ == '__main__':
-    app.run()
+    application.run()
