@@ -92,9 +92,33 @@ def checkExists(name):
         print "Guest not in system"
     else:
         updateStatement = "UPDATE guests SET time_entered = '%s' WHERE firstname = '%s' AND lastname = '%s';" %(timestamp1,name[0],name[1])
-        print updateStatement
         cur.execute(updateStatement)
         conn.commit()
+        timeAdd = '%s' %(timestamp1)
+        name.append(timeAdd)
+        list(name)
+        print type(name)
+
+        #return render_template('index.html', output = "random")
+        with open('attendees.csv', 'wb') as attendees:
+            wr = csv.writer(attendees, delimiter=',',
+                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            wr.writerow(name)
+
+        attendees.close()
+
+
+
+        #html = """
+        #        <html>
+        #            <body>
+        #                <p>%s</p>
+        #                <a href="hhhhhhhhhhh" ><img src="images/go_online.png"></a>
+        #            </body>
+        #       </html>
+        #        """ #% (myText, link)
+        #return html
+
 
 
 

@@ -11,6 +11,7 @@
 <!--
 
 -->
+<p>hello</p>
 
 <h2><font size="20">Please swipe card</font></h2>
 
@@ -19,6 +20,36 @@
         <input type="submit" value="Submit Info">
         <input type="reset" value="Reset">
     </form>
+
+
+<script>
+function count_rabbits() {
+    for (var i = 1; i <= 3; i++) {
+        alert("Rabbit " + i + " out of the hat")
+    }
+}
+</script>
+
+<body>
+    <input type="button" onclick="count_rabbits()" value="Count">
+</body>
+
+<div id='table-container'></div>
+
+<script>
+  CsvToHtmlTable.init({
+    csv_path: '/Applications/PyCharm.app/Contents/bin/attendees.csv',
+    element: 'table-container',
+    allow_download: true,
+    csv_options: {separator: ',', delimiter: ','},
+    datatables_options: {"paging": false}
+  });
+</script>
+
+<body>
+<input type="button" onclick="CsvToHtml">
+</body>
+
 
 </body>
 
